@@ -47,7 +47,8 @@
   TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO 
   TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO TEXTO  TEXTO 
 
-   <span><a href="../logout.php">SignUp</a></span>
+   <br>
+   <span><a href="../logout.php">LogOut</a></span>
 
   </div>
 
