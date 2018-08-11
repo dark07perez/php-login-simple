@@ -1,8 +1,8 @@
 <?php
 
-$server = 'localhost:3307';
+$server = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'admin';
 $database = 'php_login_database';
 
 try {

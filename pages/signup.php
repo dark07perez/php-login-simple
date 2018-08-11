@@ -1,6 +1,6 @@
 <?php
 
-  require 'controller/connection.php';
+  require 'controller/database.php';
 
   $message = '';
 
