@@ -1,6 +1,5 @@
 <?php
-
-  session_name();
+  /*
   session_start();
 
   if (isset($_SESSION['user_id'])) {
@@ -23,6 +22,26 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['user_id'] = $results['id'];
+      header("Location: /php-login");
+    } else {
+      $message = 'Sorry, those credentials do not match';
+    }
+  }
+
+  */
+
+
+  require '../controller/database.php';
+
+  if (!empty($_POST['email']) && !empty($_POST['password'])) {    
+    
+    $query = "SELECT id FROM USERS WHERE email ='".$_POST['email']."'AND password = '".$_POST['password']."'";
+    $consul = mysqli_query($conn, $query);
+    $results = mysqli_fetch_array($consul);
+    
+    $message = '';
+
+    if (count($results) >0) {
       header("Location: /php-login");
     } else {
       $message = 'Sorry, those credentials do not match';

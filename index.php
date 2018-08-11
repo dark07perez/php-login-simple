@@ -1,4 +1,7 @@
+
 <?php
+  
+  /*
   sessin_name();
   session_start();
 
@@ -16,17 +19,17 @@
     #$records->bindParam(':id', $_SESSION['user_id']);
     #$records->execute();
     #$results = $records->fetch(PDO::FETCH_ASSOC);
-
-    echo $_SESSION['user_id'];
-    echo "asdad";
+    */
+        
     $user = null;
+
+    /*
     if (count($results) > 0) {
       $user = $results;
     }
   }
-
-
-/*
+*/
+?>
 
 <!DOCTYPE html>
 <html>
@@ -53,6 +56,3 @@
     <?php endif; ?>
   </body>
 </html>
-*/
-?>
-
