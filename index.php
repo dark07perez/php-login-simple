@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="controller/assets/css/style.css">
   </head>
   <body>
-    <?php require 'controller/partials/header.php' ?>
+    <?php require 'pages/partials/header.php' ?>
 
     <?php if(!empty($user)): ?>
       <br> Welcome. <?= $user['email']; ?>
