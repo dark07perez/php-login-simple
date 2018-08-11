@@ -4,15 +4,19 @@
   require 'controller/database.php';
 
   if (isset($_SESSION['user_id'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM USERS WHERE id = :id');
-    $records->bindParam(':id', $_SESSION['user_id']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $query = "SELECT id, email, password FROM USERS WHERE id = :id";
+    $result = mysqli_query($conn, $query);
+
+    #$records = $conn->prepare('SELECT id, email, password FROM USERS WHERE id = :id');
+    #$records->bindParam(':id', $_SESSION['user_id']);
+    #$records->execute();
+    #$results = $records->fetch(PDO::FETCH_ASSOC);
 
     $user = null;
-
     if (count($results) > 0) {
       $user = $results;
+      echo $user;
     }
   }
 ?>

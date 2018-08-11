@@ -5,7 +5,7 @@
   if (isset($_SESSION['user_id'])) {
     header('Location: /php-login');
   }
-  require 'controller/database.php';
+  require '../controller/database.php';
 
   if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $records = $conn->prepare('SELECT id, email, password FROM USERS WHERE email = :email');
@@ -22,11 +22,6 @@
       $message = 'Sorry, those credentials do not match';
     }
   }
-
-
-  
-  
-
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +30,19 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="controller/assets/css/style.css">
+    <link rel="stylesheet" href="../controller/assets/css/style.css">
   </head>
   <body>
-    <?php require 'controller/partials/header.php' ?>
+    <?php require '../controller/partials/header.php' ?>
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
 
     <h1>Login</h1>
-    <span>or <a href="pages/signup.php">SignUp</a></span>
+    <span>or <a href="signup.php">SignUp</a></span>
 
-    <form action="pages/login.php" method="POST">
+    <form action="login.php" method="POST">
       <input name="email" type="text" placeholder="Enter your email">
       <input name="password" type="password" placeholder="Enter your Password">
       <input type="submit" value="Submit">
