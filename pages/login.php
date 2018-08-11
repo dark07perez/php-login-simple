@@ -1,5 +1,6 @@
 <?php
 
+  session_name();
   session_start();
 
   if (isset($_SESSION['user_id'])) {
@@ -8,11 +9,16 @@
   require '../controller/database.php';
 
   if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM USERS WHERE email = :email');
-    $records->bindParam(':email', $_POST['email']);
-    $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
-
+    
+    
+    $query = "SELECT id, email, password FROM USERS WHERE email = :email";
+    $consul = mysqli_query($conn, $query);
+    $results = mysqli_fetch_array($consul);
+    
+    #$records = $conn->prepare('SELECT id, email, password FROM USERS WHERE email = :email');    
+    #$records->bindParam(':email', $_POST['email']);
+    #$records->execute();
+    #$results = $records->fetch(PDO::FETCH_ASSOC);
     $message = '';
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {

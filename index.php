@@ -1,25 +1,32 @@
 <?php
+  sessin_name();
   session_start();
 
   require 'controller/database.php';
-
+  echo $_SESSION['user_id'];
+  
   if (isset($_SESSION['user_id'])) {
 
-    $query = "SELECT id, email, password FROM USERS WHERE id = :id";
-    $result = mysqli_query($conn, $query);
+    $query = "SELECT id FROM USERS WHERE id ='".$_SESSION['user_id']."'";
+
+    $consul = mysqli_query($conn, $query);
+    $results = mysqli_fetch_array($consul);
 
     #$records = $conn->prepare('SELECT id, email, password FROM USERS WHERE id = :id');
     #$records->bindParam(':id', $_SESSION['user_id']);
     #$records->execute();
     #$results = $records->fetch(PDO::FETCH_ASSOC);
 
+    echo $_SESSION['user_id'];
+    echo "asdad";
     $user = null;
     if (count($results) > 0) {
       $user = $results;
-      echo $user;
     }
   }
-?>
+
+
+/*
 
 <!DOCTYPE html>
 <html>
@@ -46,3 +53,6 @@
     <?php endif; ?>
   </body>
 </html>
+*/
+?>
+

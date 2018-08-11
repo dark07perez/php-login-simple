@@ -18,10 +18,10 @@ try {
 # PROBAR CONEXION
 
 $query = "SELECT * from USERS";
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_array($result);
+$results = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($results);
 
-while ($row = mysqli_fetch_array($result)) {
+while ($row = mysqli_fetch_array($results)) {
   print_r($row);
   echo "CONN";
 }
