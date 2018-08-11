@@ -5,7 +5,7 @@ $username = 'root';
 $password = 'admin';
 $database = 'php_login_database';
 
-$conn = mysqli_connect($server, $username,$password,$database) or die('Error al conectar con MySQL Server.');
+$conn = mysqli_connect($server, $username, $password, $database) or die('Error al conectar con MySQL Server.');
 
 /*
 # CONEXION ANTIGUA

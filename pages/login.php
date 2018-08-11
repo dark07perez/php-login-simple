@@ -3,7 +3,7 @@
   session_start();
 
   if (isset($_SESSION['user_id'])) {
-    header('Location: /php-login');
+    header('Location: header.php');
   }
   require '../controller/database.php';
 
@@ -22,7 +22,7 @@
 
     if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
       $_SESSION['user_id'] = $results['id'];
-      header("Location: /php-login");
+      header("Location: header.php");
     } else {
       $message = 'Sorry, those credentials do not match';
     }
@@ -42,7 +42,7 @@
     $message = '';
 
     if (count($results) >0) {
-      header("Location: /php-login");
+      header("Location: partials/header.php");
     } else {
       $message = 'Sorry, those credentials do not match';
     }
