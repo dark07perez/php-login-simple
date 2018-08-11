@@ -1,19 +1,12 @@
 
 <?php
   
-  /*
-  sessin_name();
+  /* 
   session_start();
 
   require 'controller/database.php';
-  echo $_SESSION['user_id'];
-  
+ 
   if (isset($_SESSION['user_id'])) {
-
-    $query = "SELECT id FROM USERS WHERE id ='".$_SESSION['user_id']."'";
-
-    $consul = mysqli_query($conn, $query);
-    $results = mysqli_fetch_array($consul);
 
     #$records = $conn->prepare('SELECT id, email, password FROM USERS WHERE id = :id');
     #$records->bindParam(':id', $_SESSION['user_id']);
@@ -21,14 +14,23 @@
     #$results = $records->fetch(PDO::FETCH_ASSOC);
     */
         
-    $user = null;
+    session_start();
 
-    /*
+    require 'controller/database.php';
+    
+    if (isset($_SESSION['user_id'])) {
+      $query = "SELECT id, email, password FROM USERS WHERE id ='".$_SESSION['user_id']."'";
+      $consul = mysqli_query($conn, $query);
+      $results = mysqli_fetch_array($consul);
+    }
+
+    $user = null;
+    
     if (count($results) > 0) {
       $user = $results;
     }
-  }
-*/
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +42,13 @@
     <link rel="stylesheet" href="controller/assets/css/style.css">
   </head>
   <body>
-    <?php require 'pages/partials/header.php' ?>
-
-    <?php if(!empty($user)): ?>
-      <br> Welcome. <?= $user['email']; ?>
-      <br>You are Successfully Logged In
+    <h1>Your App</h1>
+    <?php if(!empty($user)): ?>      
       <a href="pages/logout.php">
         Logout
       </a>
-    <?php else: ?>
-      <h1>Please Login or SignUp</h1>
-
+    <?php else: ?>      
+      <h2>Please Login or SignUp</h2>
       <a href="pages/login.php">Login</a> or
       <a href="pages/signup.php">SignUp</a>
     <?php endif; ?>

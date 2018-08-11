@@ -69,9 +69,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../controller/assets/css/style.css">
   </head>
-  <body>
-
-    <?php require 'partials/header.php' ?>
+  <body>   
 
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
