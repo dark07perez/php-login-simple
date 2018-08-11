@@ -39,9 +39,9 @@
       
       if (count($results) == 0) {
 
-        $query = "INSERT INTO USERS (email, password) VALUES ('".$_POST['email']."',".$_POST['confirm_password']."')";
-        $consul = mysqli_query($conn, $query);
-        
+        $query = "INSERT INTO USERS (email, password) VALUES ('".$_POST['email']."' ,'".$_POST['confirm_password']."')";
+        $consul = mysqli_query($conn, $query);     
+           
         $message = 'Successfully created new user';
 
       }
